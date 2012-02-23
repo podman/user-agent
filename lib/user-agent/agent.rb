@@ -59,6 +59,7 @@ module UserAgent
       when :Safari ; $1 if string =~ /version\/([\d\w\.\-]+)/i
       when :PS3    ; $1 if string =~ /([\d\w\.\-]+)\)\s*$/i
       when :PSP    ; $1 if string =~ /([\d\w\.\-]+)\)?\s*$/i
+      when :"IE Mobile"; $1 if string =~ /iemobile\/([\d\.]+)/i
       else           $1 if string =~ /#{name}[\/ ]([\d\w\.\-]+)/i
       end
     end
@@ -83,6 +84,7 @@ module UserAgent
       when /windows nt 5\.2/i             ; :'Windows 2003'
       when /windows nt 5\.1/i             ; :'Windows XP'
       when /windows nt 5\.0/i             ; :'Windows 2000'
+      when /windows phone os ([^;]+);/i   ; :"Windows Phone OS #{$1}"
       when /os x (\d+)[._](\d+)/i         ; :"OS X #{$1}.#{$2}"
       when /android ([^;]+);/i            ; :"Android #{$1}"
       when /linux/i                       ; :Linux
@@ -105,6 +107,7 @@ module UserAgent
 
     def self.platform_for_user_agent string
       case string
+      when /windows phone/i; :"Windows Phone"
       when /windows/i     ; :Windows
       when /macintosh/i   ; :Macintosh
       when /android/i     ; :Android
@@ -129,6 +132,7 @@ module UserAgent
       when /chrome/i               ; :Chrome
       when /mobile safari/i        ; :"Mobile Safari"
       when /safari/i               ; :Safari
+      when /iemobile/i             ; :"IE Mobile"
       when /msie/i                 ; :IE
       when /opera/i                ; :Opera
       when /playstation 3/i        ; :PS3
@@ -143,7 +147,7 @@ module UserAgent
     def self.device_for_user_agent string
       case platform = platform_for_user_agent(string)
       when :Windows, :Macintosh, :Linux, :ChromeOS ; :Desktop
-      when :iPod, :iPad, :iPhone, :BlackBerry, :PlayBook, :Android, :webOS ; :Mobile
+      when :iPod, :iPad, :iPhone, :BlackBerry, :PlayBook, :Android, :webOS, :"Windows Phone" ; :Mobile
       when :Wii, :Playstation ; :"Game Console"
       else ; :Unknown
       end
