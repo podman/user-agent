@@ -3,14 +3,14 @@ require 'user-agent/version'
 
 Gem::Specification.new do |s|
 
-  s.name = 'cv-user-agent'
+  s.name = 'podman-user-agent'
   s.version = UserAgent::VERSION
-  s.authors = ['Carlos Villela']
-  s.email = 'cvillela@thoughtworks.com'
-  s.homepage = 'http://github.com/cv/user-agent'
+  s.authors = ['Adam Podolnick']
+  s.email = 'podman@gmail.com'
+  s.homepage = 'http://github.com/podman/user-agent'
   s.summary = 'User agent parser'
   s.description = 'user-agent is a user agent parser support most of the commonly used browsers today.'
-  s.rubyforge_project = 'cv-user-agent'
+  s.rubyforge_project = 'podman-user-agent'
   s.require_paths = ['lib']
 
   s.files = `git ls-files`.split("\n")
