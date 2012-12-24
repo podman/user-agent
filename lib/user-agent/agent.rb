@@ -80,7 +80,8 @@ module UserAgent
     def self.os_for_user_agent string
       case string
       when /windows nt 6\.0/i             ; :'Windows Vista'
-      when /windows nt 6\.\d+/i           ; :'Windows 7'
+      when /windows nt 6\.2/i             ; :'Windows 8'
+      when /windows nt 6\.1/i           ; :'Windows 7'
       when /windows nt 5\.2/i             ; :'Windows 2003'
       when /windows nt 5\.1/i             ; :'Windows XP'
       when /windows nt 5\.0/i             ; :'Windows 2000'
