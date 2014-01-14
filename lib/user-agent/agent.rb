@@ -60,7 +60,7 @@ module UserAgent
       when :PS3    ; $1 if string =~ /([\d\w\.\-]+)\)\s*$/i
       when :PSP    ; $1 if string =~ /([\d\w\.\-]+)\)?\s*$/i
       when :"IE Mobile"; $1 if string =~ /iemobile\/([\d\.]+)/i
-      else           $1 if string =~ /#{name}[\/ ]([\d\w\.\-]+)/i
+      else           $1 if string =~ /#{name}[\/ ]([\d\w\.\-]+)/i || string =~ /rv\:([\d\.]+)/i
       end
     end
 
@@ -71,6 +71,7 @@ module UserAgent
       when /konqueror/i ; :konqueror
       when /chrome/i    ; :chrome
       when /presto/i    ; :presto
+      when /trident.*like gecko/i; :msie
       when /gecko/i     ; :gecko
       when /msie/i      ; :msie
       else                :Unknown
@@ -81,7 +82,7 @@ module UserAgent
       case string
       when /windows nt 6\.0/i             ; :'Windows Vista'
       when /windows nt 6\.2/i             ; :'Windows 8'
-      when /windows nt 6\.1/i           ; :'Windows 7'
+      when /windows nt 6\.1/i             ; :'Windows 7'
       when /windows nt 5\.2/i             ; :'Windows 2003'
       when /windows nt 5\.1/i             ; :'Windows XP'
       when /windows nt 5\.0/i             ; :'Windows 2000'
@@ -135,6 +136,7 @@ module UserAgent
       when /safari/i               ; :Safari
       when /iemobile/i             ; :"IE Mobile"
       when /msie/i                 ; :IE
+      when /trident.*rv\:11/i      ; :IE         # "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko"
       when /opera/i                ; :Opera
       when /playstation 3/i        ; :PS3
       when /playstation portable/i ; :PSP

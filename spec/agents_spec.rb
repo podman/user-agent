@@ -26,6 +26,8 @@ describe UserAgent do
 
   test :Safari, '4.0', :iPhone, :'iOS 3.0', :webkit, '528.18', 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16'
 
+  test :IE, '11.0', :Windows, :'Windows 8', :msie, nil, 'Mozilla/5.0 (Windows NT 6.2; Trident/7.0; rv:11.0) like Gecko'
+  test :IE, '11.0', :Windows, :'Windows 7', :msie, nil, 'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko'
   test :IE, '10.0', :Windows, :'Windows 8', :msie, '10.0', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)'
   test :IE, '10.0', :Windows, :'Windows 7', :msie, '10.0', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'
   test :IE, '9.0', :Windows, :'Windows 7', :msie, '9.0', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'
