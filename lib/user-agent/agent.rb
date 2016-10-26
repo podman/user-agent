@@ -49,7 +49,9 @@ module UserAgent
     end
 
     def self.engine_version_for_user_agent string
-      $1 if string =~ /#{engine_for_user_agent(string)}[\/ ]([\d\w\.\-]+)/i
+      e = engine_for_user_agent(string)
+      e = 'trident' if string =~ /trident/i
+      $1 if string =~ /#{e}[\/ ]([\d\w\.\-]+)/i
     end
 
     def self.version_for_user_agent string
@@ -60,6 +62,7 @@ module UserAgent
       when :PS3    ; $1 if string =~ /([\d\w\.\-]+)\)\s*$/i
       when :PSP    ; $1 if string =~ /([\d\w\.\-]+)\)?\s*$/i
       when :"IE Mobile"; $1 if string =~ /iemobile\/([\d\.]+)/i
+      when :Edge   ; $1 if string =~ /edge\/([\d]+)/i
       else           $1 if string =~ /#{name}[\/ ]([\d\w\.\-]+)/i || string =~ /rv\:([\d\.]+)/i
       end
     end
@@ -82,6 +85,8 @@ module UserAgent
       case string
       when /windows nt 6\.0/i             ; :'Windows Vista'
       when /windows nt 6\.2/i             ; :'Windows 8'
+      when /windows nt 6\.3/i             ; :'Windows 8.1'
+      when /windows nt 10\.0/i            ; :'Windows 10'
       when /windows nt 6\.1/i             ; :'Windows 7'
       when /windows nt 5\.2/i             ; :'Windows 2003'
       when /windows nt 5\.1/i             ; :'Windows XP'
@@ -109,6 +114,7 @@ module UserAgent
 
     def self.platform_for_user_agent string
       case string
+      when /xbox/i        ; :Xbox
       when /windows phone/i; :"Windows Phone"
       when /windows/i     ; :Windows
       when /macintosh/i   ; :Macintosh
@@ -131,6 +137,7 @@ module UserAgent
       case string
       when /konqueror/i            ; :Konqueror
       when /chromeframe/i          ; :ChromeFrame
+      when /edge/i                 ; :Edge
       when /chrome/i               ; :Chrome
       when /mobile safari/i        ; :"Mobile Safari"
       when /safari/i               ; :Safari
@@ -151,7 +158,7 @@ module UserAgent
       case platform = platform_for_user_agent(string)
       when :Windows, :Macintosh, :Linux, :ChromeOS ; :Desktop
       when :iPod, :iPad, :iPhone, :BlackBerry, :PlayBook, :Android, :webOS, :"Windows Phone" ; :Mobile
-      when :Wii, :Playstation ; :"Game Console"
+      when :Wii, :Playstation, :Xbox ; :"Game Console"
       else ; :Unknown
       end
     end

@@ -26,17 +26,27 @@ describe UserAgent do
 
   test :Safari, '4.0', :iPhone, :'iOS 3.0', :webkit, '528.18', 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16'
 
-  test :IE, '11.0', :Windows, :'Windows 8', :msie, nil, 'Mozilla/5.0 (Windows NT 6.2; Trident/7.0; rv:11.0) like Gecko'
-  test :IE, '11.0', :Windows, :'Windows 7', :msie, nil, 'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko'
-  test :IE, '10.0', :Windows, :'Windows 8', :msie, '10.0', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)'
-  test :IE, '10.0', :Windows, :'Windows 7', :msie, '10.0', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'
-  test :IE, '9.0', :Windows, :'Windows 7', :msie, '9.0', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'
-  test :IE, '8.0',  :Windows, :'Windows 7',    :msie, '8.0',  'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)'
+  test :IE, '11.0', :Windows, :'Windows 8', :msie, '7.0', 'Mozilla/5.0 (Windows NT 6.2; Trident/7.0; rv:11.0) like Gecko'
+  test :IE, '11.0', :Windows, :'Windows 7', :msie, '7.0', 'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko'
+  test :IE, '10.0', :Windows, :'Windows 8', :msie, '6.0', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)'
+  test :IE, '10.0', :Windows, :'Windows 7', :msie, '6.0', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'
+  test :IE, '9.0', :Windows, :'Windows 7', :msie, '5.0', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'
+  test :IE, '8.0',  :Windows, :'Windows 7',    :msie, '4.0',  'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)'
   test :IE, '7.0b', :Windows, :'Windows 2003', :msie, '7.0b', 'Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30)'
   test :IE, '7.0', :Windows, :'Windows XP', :msie, '7.0', "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2)"
   test :IE, '7.0', :Windows, :'Windows XP', :msie, '7.0', "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2; MSOffice 12)"
   test :IE, '6.0b', :Windows, :'Windows XP',   :msie, '6.0b', 'Mozilla/4.0 (compatible; MSIE 6.0b; Windows NT 5.1)'
   test :IE, '6.0',  :Windows, :'Windows XP',   :msie, '6.0',  'Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)'
+
+  test :IE, '11.0', :Windows, :'Windows 10', :msie, '7.0', '
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko'
+
+  test :IE, '11.0', :Windows, :'Windows 8.1', :msie, '7.0', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko'
+
+  test :IE, '10.0', :Xbox, :'Windows 8', :msie, '6.0', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)'
+
+  test :Edge, '14', :Windows, :'Windows 10', :webkit, '537.36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/14.14300'
+
 
   test :Opera, '9.99', :Windows, :'Windows XP', :presto,  '9.9.9',    'Opera/9.99 (Windows NT 5.1; U; pl) Presto/9.9.9'
   test :Opera, '9.70', :Linux,   :Linux,        :gecko,   '20061208', 'Mozilla/5.0 (Linux i686 ; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0 Opera 9.70'
